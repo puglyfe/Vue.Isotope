@@ -29,7 +29,14 @@
       list: {
         type: Array,
         required: true
-      }
+      },
+      tag: {
+        type: String,
+        required: false,
+        default: function () {
+          return 'div';
+        },
+      },
     }
 
     var isotopeComponent = {
@@ -71,8 +78,9 @@
             }
           }
         }
+        console.log('hello')
 
-        return h('div', null, displayChildren)
+        return h(this.tag, null, displayChildren)
       },
 
       mounted() {
